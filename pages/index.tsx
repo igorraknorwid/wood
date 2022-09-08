@@ -109,7 +109,7 @@ const Home = ({
       <main>
         <div
           style={{
-            background: `#222021 url("https://res.cloudinary.com/zielona-g-ra/image/upload/v1661865003/wood/background_mjeqib.svg") repeat-y  center / cover`,
+            background: `#222021 url("https://res.cloudinary.com/zielona-g-ra/image/upload/v1662633724/wood/bg-vector_j8r9lo.svg") repeat-y  center / cover`,
             width: "100%",
           }}
           className='wrapper relative'

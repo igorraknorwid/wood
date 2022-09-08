@@ -22,7 +22,7 @@ const Advantages = () => {
           </div>
         </div>
         <div className='inter text-xl xl:text-3xl font-medium basis-1/2 mt-10'>
-          <ul className='px-10'>
+          <ul className=''>
             <li>In-house carpentry production</li>
             <li className='mt-12'>
               We only treat wood with environmentally friendly and safe products
