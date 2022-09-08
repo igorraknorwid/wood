@@ -9,6 +9,7 @@ import Logo from "../components/layout/logo/Logo";
 import Navbar from "../components/layout/Navbar";
 import OurWorks from "../components/OurWork";
 import Wood from "../components/Wood";
+import Image from "next/image";
 
 import { ICard, IMenu, ISlide } from "../types";
 
@@ -143,14 +144,7 @@ const Home = ({
             />
           </div>
 
-          <div
-            className='fixed w-full  top-0  z-50 flex justify-between items-center px-4 md:px-10 xl:px-20 pt-10 pb-12'
-            style={{
-              backgroundColor: "#1E0C06",
-              borderBottomLeftRadius: "42px",
-              borderBottomRightRadius: "42px",
-            }}
-          >
+          <div className='fixed w-full  top-12 z-50 flex justify-between items-center px-4 md:px-10 xl:px-20'>
             <div className='header__logo'>
               <Logo />
             </div>
@@ -186,11 +180,47 @@ const Home = ({
             </div>
           </div>
 
-          <AboutUs />
-
-          <OurWorks slides={slides} />
-
-          <Contact />
+          <section
+            className='w-5/6 mx-auto pt-20 lg:pt-72 '
+            style={{ paddingBottom: "400px", minHeight: "100vh" }}
+          >
+            <div className='flex flex-col lg:flex-row justify-center'>
+              <div className='lg:basis-1/2'>
+                <h1>Contact</h1>
+                <div className='flex items-center'>
+                  <Image
+                    src='/ph_phone-call.svg'
+                    alt='phone'
+                    width={50}
+                    height={50}
+                  />
+                  <p>+420 000 000 000</p>
+                </div>
+                <div className=' flex items-center'>
+                  <Image
+                    src='/adress.svg'
+                    alt='adress'
+                    width={50}
+                    height={50}
+                  />
+                  <p>Na Plzeňce 1166/0 150 00</p>
+                </div>
+              </div>
+              <div>
+                <div className='lg:basis-1/2'>
+                  <iframe
+                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963.4329167204862!2d24.916848636344344!3d60.19186618717923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920989936b78ed%3A0x1eddf9d0f30ef2a4!2sTeslamed%20Oy!5e0!3m2!1sru!2spl!4v1662639171012!5m2!1sru!2spl'
+                    width='600'
+                    height='450'
+                    style={{ border: 0, borderRadius: "42px" }}
+                    allowFullScreen={true}
+                    loading='lazy'
+                    referrerPolicy='no-referrer-when-downgrade'
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <Footer />
         </div>

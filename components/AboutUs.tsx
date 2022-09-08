@@ -3,7 +3,7 @@ import Header from "./ui/Header";
 
 const AboutUs = () => {
   return (
-    <section className=' w-full mt-20 lg:mt-72'>
+    <section className=' w-full pt-20 lg:pt-72'>
       <div className='woodbox lg:flex'>
         <div className='woodbox_content  lg:flex-1'>
           <Header h={"h2"}> About Us</Header>

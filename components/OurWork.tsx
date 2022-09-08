@@ -4,7 +4,7 @@ import Header from "./ui/Header";
 
 const OurWorks = ({ slides }: ISlider) => {
   return (
-    <section className='wood w-5/6 mx-auto mt-20 lg:mt-72 '>
+    <section className='wood w-5/6 mx-auto pt-20 lg:pt-72 '>
       <div className='flex justify-center'>
         <Header h={"h2"}> Our work </Header>
       </div>

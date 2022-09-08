@@ -143,14 +143,7 @@ const Home = ({
             />
           </div>
 
-          <div
-            className='fixed w-full  top-0  z-50 flex justify-between items-center px-4 md:px-10 xl:px-20 pt-10 pb-12'
-            style={{
-              backgroundColor: "#1E0C06",
-              borderBottomLeftRadius: "42px",
-              borderBottomRightRadius: "42px",
-            }}
-          >
+          <div className='fixed w-full  top-12 z-50 flex justify-between items-center px-4 md:px-10 xl:px-20'>
             <div className='header__logo'>
               <Logo />
             </div>
@@ -186,9 +179,9 @@ const Home = ({
             </div>
           </div>
 
-          <AboutUs />
-
           <OurWorks slides={slides} />
+
+          <Wood cards={cards} />
 
           <Contact />
 
