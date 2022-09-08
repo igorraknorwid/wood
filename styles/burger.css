@@ -1,0 +1,45 @@
+.burger {
+  width: 60px;
+}
+.burger__bottom-line,
+.burger__top-bottom--short,
+.burger__mid-line,
+.burger__top-line,
+.burger__top-line--short {
+  height: 6px;
+  background-color: aliceblue;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.burger__mid-line,
+.burger__bottom-line,
+.burger__top-bottom--short {
+  margin-top: 6px;
+}
+
+.burger__top-line--short {
+  animation: test 0.5s linear forwards;
+}
+
+.burger__top-bottom--short {
+  animation: short 0.5s linear forwards;
+}
+
+@keyframes test {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 30px;
+  }
+}
+
+@keyframes short {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 30px;
+  }
+}

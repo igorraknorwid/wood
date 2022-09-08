@@ -1,0 +1,26 @@
+.mybtn {
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 139.4%;
+  border-radius: 42px;
+  width: min-content;
+  background-color: #728bad;
+  padding: 12px 70px;
+  transition: all 0.5s ease;
+}
+
+.mybtn:hover {
+  background-color: #d5dcee;
+  color: #8e3921;
+  border: none;
+}
+
+@media (max-width: 1024px) {
+  .mybtn {
+    font-size: 20px;
+    padding: 7px 20px;
+  }
+}

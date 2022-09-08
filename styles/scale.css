@@ -1,0 +1,8 @@
+.scale2x {
+  transition: all 1s ease;
+}
+
+.scale2x:hover {
+  transition: all 1s ease;
+  transform: scale(2);
+}

@@ -1,0 +1,10 @@
+.advantages_img-box {
+  width: 609px;
+  height: 386px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .advantages_img-box {
+    width: 100%;
+  }
+}

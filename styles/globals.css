@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./burger.css";
+@import "./logo.css";
+@import "./scale.css";
+@import "./slider.css";
+@import "./form.css";
+@import "./my_button.css";
+@import "./contact.css";
+@import "./mobile_menu.css";
+@import "./header_img.css";
+@import "./advantages.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, Montserrat, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.barrio {
+  font-family: "Barrio", cursive;
+}
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.header_title {
+  font-size: 90px;
+}
+
+@media (max-width: 1024px) {
+  .header_title {
+    font-size: 30px;
+  }
+}
+
+.woodbox {
+  width: 83vw;
+  min-height: 775px;
+  border-top-right-radius: 42px;
+  border-bottom-right-radius: 42px;
+  background: rgba(30, 12, 6, 0.61);
+  box-shadow: -2px -2px 30px rgba(245, 245, 245, 0.836);
+  padding: 44px 0;
+}
+
+.woodbox_content {
+  padding-left: 10%;
+  padding-right: 25px;
+}
+
+.woodbox_images {
+  position: relative;
+  width: 500px;
+}
+.woodbox__image {
+  position: relative;
+  width: 208px;
+  height: 208px;
+}
+.woodbox__big_image {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+.woodbox__image > span > img {
+  border-radius: 42px;
+}
+.woodbox__big_image > span > img {
+  border-radius: 42px;
+}
+
+@media (max-width: 1024px) {
+  .woodbox {
+    width: 90vw;
+    min-height: 775px;
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+    background: rgba(30, 12, 6, 0.61);
+    box-shadow: -2px -2px 30px rgba(245, 245, 245, 0.836);
+    padding-top: 44px;
+  }
+  .woodbox_content {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+  }
+  .woodbox_images {
+    width: 100%;
+    height: 100%;
+  }
+
+  .woodbox__image {
+    width: 104px;
+    height: 104px;
+  }
+
+  .woodbox__big_image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .woodbox__image > span > img {
+    border-radius: 21px;
+  }
+
+  .woodbox__big_image > span > img {
+    border-radius: 21px;
+  }
+}

@@ -1,0 +1,22 @@
+.form > * {
+  border: 4px solid #728bad;
+  background: transparent;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 139.4%;
+  padding: 14px 40px;
+  border-radius: 42px;
+}
+.form > *:focus {
+  outline: none !important;
+  border-color: #719ece;
+  box-shadow: 0 0 10px #719ece;
+}
+.form > * + * {
+  margin-top: 23px;
+}
+
+.form > textarea {
+  min-height: 250px;
+}

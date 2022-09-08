@@ -1,0 +1,29 @@
+.mobile-init {
+  transform: translateX(-100%);
+}
+
+.mobile-open {
+  animation: mobile_open ease-in 0.5s forwards;
+}
+
+@keyframes mobile_open {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobile-close {
+  animation: mobile_close linear 0.3s forwards;
+}
+
+@keyframes mobile_close {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
