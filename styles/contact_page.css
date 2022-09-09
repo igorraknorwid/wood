@@ -1,0 +1,21 @@
+.contact_page.header {
+  font-size: 90px;
+  font-weight: 400;
+}
+
+.contact_page.map {
+  width: 493px;
+  height: 450px;
+  border: none;
+  border-radius: 42px;
+}
+
+@media (max-width: 1024px) {
+  .contact_page.header {
+    font-size: 30px;
+  }
+  .contact_page.map {
+    width: 100%;
+    border-radius: 21px;
+  }
+}

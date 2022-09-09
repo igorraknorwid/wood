@@ -1,14 +1,14 @@
 import Head from "next/head";
 import React from "react";
 import AboutUs from "../components/AboutUs";
-import Advantages from "../components/Advantages";
 import Contact from "../components/Contact";
-import HeaderContent from "../components/HeaderContent";
 import Footer from "../components/layout/Footer";
 import Logo from "../components/layout/logo/Logo";
 import Navbar from "../components/layout/Navbar";
 import OurWorks from "../components/OurWork";
-import Wood from "../components/Wood";
+import Burger from "../components/ui/Burger";
+import Menu from "../components/ui/Menu";
+import MobileMenu from "../components/ui/MobileMenu";
 
 import { ICard, IMenu, ISlide } from "../types";
 
@@ -97,6 +97,10 @@ const Home = ({
   const [isInit, setIsInit] = React.useState(false);
   const [isBurgerActive, setIsBurgerActive] = React.useState(true);
 
+  const burgerHandler = () => {
+    setIsBurgerActive((s) => !s);
+  };
+
   return (
     <>
       <Head>
@@ -114,77 +118,19 @@ const Home = ({
           }}
           className='relative'
         >
-          {/* <div
-            className='header__bg-image'
-            style={{
-              background: ` url("https://res.cloudinary.com/zielona-g-ra/image/upload/v1661867072/wood/logs_hk9ana.webp") no-repeat  center / cover`,
-              opacity: "0.5",
-              boxShadow: "2px 2px 30px rgba(34, 32, 33, 0.76)",
-            }}
-          ></div> */}
+          <MobileMenu
+            isInit={isInit}
+            isBurgerActive={isBurgerActive}
+            setIsBurgerActive={setIsBurgerActive}
+            menuData={menuData}
+          />
 
-          <div
-            style={{ borderTopRightRadius: "42px" }}
-            className={
-              isInit
-                ? isBurgerActive
-                  ? "mobile-close fixed top-40 left-0 right-40 bottom-0 z-50 h-full bg-white py-10 flex justify-center uppercase "
-                  : "mobile-open fixed top-40 left-0 right-20 bottom-0 z-50 h-full bg-white py-10 flex justify-center uppercase "
-                : "mobile-init fixed top-40 left-0 right-40 bottom-0 z-50 h-full bg-white py-10 flex justify-center uppercase "
-            }
-          >
-            <Navbar
-              closeMobilePanel={() => {
-                setIsBurgerActive(false);
-              }}
-              menuData={menuData}
-              ulStyles='flex flex-col  gap-y-10  bg-white text-black px-4'
-              liStyles='text-3xl'
-            />
-          </div>
-
-          <div
-            className='fixed w-full  top-0  z-50 flex justify-between items-center px-4 md:px-10 xl:px-20 pt-10 pb-12'
-            style={{
-              backgroundColor: "#1E0C06",
-              borderBottomLeftRadius: "42px",
-              borderBottomRightRadius: "42px",
-            }}
-          >
-            <div className='header__logo'>
-              <Logo />
-            </div>
-            <div className='header__navbar  hidden lg:block '>
-              <Navbar
-                menuData={menuData}
-                ulStyles='flex flex-wrap gap-x-16 xl:gap-x-30 2xl:gap-x-40  text-xl ml-10 '
-                liStyles='hover:opacity-50'
-              />
-            </div>
-            <div
-              className='burger  lg:hidden'
-              onClick={() => {
-                setIsInit(true);
-                setIsBurgerActive((s) => !s);
-              }}
-            >
-              <div
-                className={
-                  isBurgerActive
-                    ? "burger__top-line"
-                    : "burger__top-line--short"
-                }
-              ></div>
-              <div className={"burger__mid-line"}></div>
-              <div
-                className={
-                  isBurgerActive
-                    ? "burger__bottom-line"
-                    : "burger__top-bottom--short"
-                }
-              ></div>
-            </div>
-          </div>
+          <Menu
+            menuData={menuData}
+            setIsInit={setIsInit}
+            burgerHandler={burgerHandler}
+            isBurgerActive={isBurgerActive}
+          />
 
           <AboutUs />
 

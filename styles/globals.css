@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import "./burger.css";
 @import "./logo.css";
 @import "./scale.css";
@@ -11,6 +12,7 @@
 @import "./mobile_menu.css";
 @import "./header_img.css";
 @import "./advantages.css";
+@import "./contact_page.css";
 
 html,
 body {

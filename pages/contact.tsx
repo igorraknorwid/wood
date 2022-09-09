@@ -1,21 +1,12 @@
 import Head from "next/head";
 import React from "react";
-import AboutUs from "../components/AboutUs";
-import Advantages from "../components/Advantages";
-import Contact from "../components/Contact";
-import HeaderContent from "../components/HeaderContent";
-import Footer from "../components/layout/Footer";
-import Logo from "../components/layout/logo/Logo";
-import Navbar from "../components/layout/Navbar";
-import OurWorks from "../components/OurWork";
-import Wood from "../components/Wood";
 import Image from "next/image";
-
 import { ICard, IMenu, ISlide } from "../types";
+import Footer from "../components/layout/Footer";
+import MobileMenu from "../components/ui/MobileMenu";
+import Menu from "../components/ui/Menu";
 
 export const getServerSideProps = async () => {
-  const data = "Hello world!!! Test!!!";
-
   const menuData: IMenu[] = [
     { id: 1, title: "Home", slug: "" },
     { id: 2, title: "Gallery", slug: "gallery" },
@@ -24,71 +15,15 @@ export const getServerSideProps = async () => {
     { id: 5, title: "Contact", slug: "contact" },
   ];
 
-  const cards: ICard[] = [
-    {
-      id: 1,
-      image_src:
-        "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662019486/wood/old-wood-grain-background-3_sqsfkb.webp",
-      title: "Oak",
-      description: [
-        { option: "Durability", isTrue: true },
-        { option: "Beautiful texture", isTrue: true },
-        { option: "Water resistance", isTrue: true },
-        { option: "Expensive", isTrue: false },
-      ],
-    },
-    {
-      id: 2,
-      image_src:
-        "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662019486/wood/wood-texture-design-decoration-2_c5tnh6.webp",
-      title: "Buk",
-      description: [
-        { option: "Durability", isTrue: true },
-        { option: "Hard to handle", isTrue: false },
-      ],
-    },
-    {
-      id: 3,
-      image_src:
-        "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662019486/wood/pale-oak-wood-texture-design-background-2_hhwbjb.webp",
-      title: "Ash",
-      description: [
-        { option: "Durability", isTrue: true },
-        { option: "Hard to handle", isTrue: false },
-      ],
-    },
-  ];
-
-  const slides = [
-    {
-      id: 1,
-      src: "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662034122/wood/modern-wooden-kitchen-interior-steel-kitchen-faucet-3_sg4cwg.webp",
-    },
-    {
-      id: 2,
-      src: "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662110981/wood/lucas-hoang-oujKSaZlMFY-unsplash-1_ghhrav.webp",
-    },
-    {
-      id: 3,
-      src: "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662110974/wood/ehud-neuhaus-iv77yw43cAI-unsplash-1_bqlkqo.webp",
-    },
-  ];
-
   return {
     props: {
-      data,
       menuData,
-      cards,
-      slides,
     },
   };
 };
 
 const Home = ({
-  data,
   menuData,
-  cards,
-  slides,
 }: {
   data: string;
   menuData: IMenu[];
@@ -97,6 +32,15 @@ const Home = ({
 }) => {
   const [isInit, setIsInit] = React.useState(false);
   const [isBurgerActive, setIsBurgerActive] = React.useState(true);
+  const burgerHandler = () => {
+    setIsBurgerActive((s) => !s);
+  };
+
+  const offBurger = () => {
+    if (!isBurgerActive) {
+      setIsBurgerActive(true);
+    }
+  };
 
   return (
     <>
@@ -115,104 +59,58 @@ const Home = ({
           }}
           className='relative'
         >
-          {/* <div
-            className='header__bg-image'
-            style={{
-              background: ` url("https://res.cloudinary.com/zielona-g-ra/image/upload/v1661867072/wood/logs_hk9ana.webp") no-repeat  center / cover`,
-              opacity: "0.5",
-              boxShadow: "2px 2px 30px rgba(34, 32, 33, 0.76)",
-            }}
-          ></div> */}
+          <MobileMenu
+            isInit={isInit}
+            isBurgerActive={isBurgerActive}
+            setIsBurgerActive={setIsBurgerActive}
+            menuData={menuData}
+          />
 
-          <div
-            style={{ borderTopRightRadius: "42px" }}
-            className={
-              isInit
-                ? isBurgerActive
-                  ? "mobile-close fixed top-40 left-0 right-40 bottom-0 z-50 h-full bg-white py-10 flex justify-center uppercase "
-                  : "mobile-open fixed top-40 left-0 right-20 bottom-0 z-50 h-full bg-white py-10 flex justify-center uppercase "
-                : "mobile-init fixed top-40 left-0 right-40 bottom-0 z-50 h-full bg-white py-10 flex justify-center uppercase "
-            }
-          >
-            <Navbar
-              closeMobilePanel={() => {
-                setIsBurgerActive(false);
-              }}
-              menuData={menuData}
-              ulStyles='flex flex-col  gap-y-10  bg-white text-black px-4'
-              liStyles='text-3xl'
-            />
-          </div>
-
-          <div className='fixed w-full  top-12 z-50 flex justify-between items-center px-4 md:px-10 xl:px-20'>
-            <div className='header__logo'>
-              <Logo />
-            </div>
-            <div className='header__navbar  hidden lg:block '>
-              <Navbar
-                menuData={menuData}
-                ulStyles='flex flex-wrap gap-x-16 xl:gap-x-30 2xl:gap-x-40  text-xl ml-10 '
-                liStyles='hover:opacity-50'
-              />
-            </div>
-            <div
-              className='burger  lg:hidden'
-              onClick={() => {
-                setIsInit(true);
-                setIsBurgerActive((s) => !s);
-              }}
-            >
-              <div
-                className={
-                  isBurgerActive
-                    ? "burger__top-line"
-                    : "burger__top-line--short"
-                }
-              ></div>
-              <div className={"burger__mid-line"}></div>
-              <div
-                className={
-                  isBurgerActive
-                    ? "burger__bottom-line"
-                    : "burger__top-bottom--short"
-                }
-              ></div>
-            </div>
-          </div>
+          <Menu
+            menuData={menuData}
+            setIsInit={setIsInit}
+            burgerHandler={burgerHandler}
+            isBurgerActive={isBurgerActive}
+          />
 
           <section
-            className='w-5/6 mx-auto pt-20 lg:pt-72 '
+            onClick={offBurger}
+            className={`${
+              isBurgerActive ? "blur-none" : "blur "
+            } w-full lg:w-4/6 lg:mx-auto pt-40 lg:pt-96`}
             style={{ paddingBottom: "400px", minHeight: "100vh" }}
           >
-            <div className='flex flex-col lg:flex-row justify-center'>
+            <div className='flex flex-col lg:flex-row justify-center items-center'>
               <div className='lg:basis-1/2'>
-                <h1>Contact</h1>
-                <div className='flex items-center'>
+                <h1 className='contact_page header uppercase barrio'>
+                  Contact
+                </h1>
+                <div className='flex items-center mt-10 lg:mt-36 '>
                   <Image
                     src='/ph_phone-call.svg'
                     alt='phone'
                     width={50}
                     height={50}
                   />
-                  <p>+420 000 000 000</p>
+                  <p className='text-xl lg:text-3xl'>+420 000 000 000</p>
                 </div>
-                <div className=' flex items-center'>
+                <div className='mt-4 lg:mt-8  flex items-center'>
                   <Image
                     src='/adress.svg'
                     alt='adress'
                     width={50}
                     height={50}
                   />
-                  <p>Na Plzeňce 1166/0 150 00</p>
+                  <p className='text-xl lg:text-3xl'>
+                    Na Plzeňce 1166/0 150 00
+                  </p>
                 </div>
               </div>
               <div>
-                <div className='lg:basis-1/2'>
+                <div className='lg:basis-1/2 text-center my-10'>
                   <iframe
-                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963.4329167204862!2d24.916848636344344!3d60.19186618717923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920989936b78ed%3A0x1eddf9d0f30ef2a4!2sTeslamed%20Oy!5e0!3m2!1sru!2spl!4v1662639171012!5m2!1sru!2spl'
-                    width='600'
-                    height='450'
-                    style={{ border: 0, borderRadius: "42px" }}
+                    className='contact_page map'
+                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2806.8245438441622!2d24.937286383404366!3d60.16873679806441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bccb7ab4601%3A0x5b903f6a66114674!2sGlaspalatstorget%2C%20Lasipalatsinaukio%2C%2000100%20Helsinki%2C%20Finlandia!5e0!3m2!1spl!2spl!4v1662708465547!5m2!1spl!2spl'
                     allowFullScreen={true}
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
