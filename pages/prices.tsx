@@ -79,19 +79,19 @@ export const getServerSideProps = async () => {
 
 const PriceModal = ({ closeModal }: { closeModal(): void }) => {
   return (
-    <div className='price-modal'>
-      <div onClick={closeModal}>CLOSE</div>
-      <div>
-        <div className='relative prices'>
-          <Image
-            alt=''
-            width={1116}
-            height={6355}
-            src={
-              "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662717666/wood/Prices_roe7n8.webp"
-            }
-          />
-        </div>
+    <div className='modal'>
+      <div className='relative modal__img'>
+        <Image
+          alt=''
+          src={
+            "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662960351/wood/Slice_1_2_c0ilo8.png"
+          }
+          // style={{ overflow: "scroll" }}
+          layout='fill'
+        />
+      </div>
+      <div onClick={closeModal} className='modal__close'>
+        CLOSE
       </div>
     </div>
   );
@@ -154,7 +154,7 @@ const Home = ({
             isBurgerActive={isBurgerActive}
           />
           <div className='w-5/6 mx-auto pt-20 lg:pt-72'>
-            <div className='relative priceslist'>
+            <div className='relative priceslist  mx-auto '>
               <Image
                 alt=''
                 layout='fill'
@@ -163,6 +163,7 @@ const Home = ({
                 }
                 style={{ borderRadius: "42px" }}
                 onClick={openModal}
+                className='pt-20'
               />
             </div>
           </div>
