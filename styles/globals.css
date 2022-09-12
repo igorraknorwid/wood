@@ -126,3 +126,23 @@ a {
     border-radius: 21px;
   }
 }
+
+.price-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  z-index: 100;
+}
+
+.priceslist {
+  width: 1116px;
+  height: 897px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .priceslist {
+  }
+}

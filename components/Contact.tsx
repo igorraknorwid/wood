@@ -5,7 +5,7 @@ import Form from "./Form";
 const Contact = () => {
   return (
     <section
-      className='w-5/6 mx-auto mt-20 lg:mt-72 '
+      className='w-5/6 mx-auto pt-20 lg:pt-72 '
       style={{ paddingBottom: "400px" }}
     >
       <div className='flex justify-center'>

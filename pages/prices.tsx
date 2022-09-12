@@ -1,9 +1,8 @@
 import Head from "next/head";
 import React from "react";
-import AboutUs from "../components/AboutUs";
+import Image from "next/image";
 import Contact from "../components/Contact";
 import Footer from "../components/layout/Footer";
-import OurWorks from "../components/OurWork";
 import Menu from "../components/ui/Menu";
 import MobileMenu from "../components/ui/MobileMenu";
 
@@ -78,6 +77,26 @@ export const getServerSideProps = async () => {
   };
 };
 
+const PriceModal = ({ closeModal }: { closeModal(): void }) => {
+  return (
+    <div className='price-modal'>
+      <div onClick={closeModal}>CLOSE</div>
+      <div>
+        <div className='relative prices'>
+          <Image
+            alt=''
+            width={1116}
+            height={6355}
+            src={
+              "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662717666/wood/Prices_roe7n8.webp"
+            }
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Home = ({
   menuData,
   slides,
@@ -89,9 +108,18 @@ const Home = ({
 }) => {
   const [isInit, setIsInit] = React.useState(false);
   const [isBurgerActive, setIsBurgerActive] = React.useState(true);
+  const [isModal, setIsModal] = React.useState(false);
 
   const burgerHandler = () => {
     setIsBurgerActive((s) => !s);
+  };
+
+  const openModal = () => {
+    setIsModal(true);
+  };
+
+  const closeModal = () => {
+    setIsModal(false);
   };
 
   return (
@@ -104,6 +132,7 @@ const Home = ({
         <link rel='preconnect' href='https://fonts.gstatic.com' />
       </Head>
       <main>
+        {isModal && <PriceModal closeModal={closeModal} />}
         <div
           style={{
             background: `#222021 url("https://res.cloudinary.com/zielona-g-ra/image/upload/v1662633724/wood/bg-vector_j8r9lo.svg") repeat-y  center / cover`,
@@ -124,11 +153,19 @@ const Home = ({
             burgerHandler={burgerHandler}
             isBurgerActive={isBurgerActive}
           />
-
-          <AboutUs />
-
-          <OurWorks slides={slides} />
-
+          <div className='w-5/6 mx-auto pt-20 lg:pt-72'>
+            <div className='relative priceslist'>
+              <Image
+                alt=''
+                layout='fill'
+                src={
+                  "https://res.cloudinary.com/zielona-g-ra/image/upload/v1662717666/wood/Prices_roe7n8.webp"
+                }
+                style={{ borderRadius: "42px" }}
+                onClick={openModal}
+              />
+            </div>
+          </div>
           <Contact />
 
           <Footer />
