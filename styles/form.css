@@ -20,3 +20,12 @@
 .form > textarea {
   min-height: 250px;
 }
+
+.form > input[type="submit"] {
+  background: #728bad;
+}
+
+.form > p {
+  border: none;
+  margin-top: 0;
+}

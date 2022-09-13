@@ -7,7 +7,7 @@
   line-height: 139.4%;
   border-radius: 42px;
   width: min-content;
-  background-color: #728bad;
+  background: #728bad;
   padding: 12px 70px;
   transition: all 0.5s ease;
 }
